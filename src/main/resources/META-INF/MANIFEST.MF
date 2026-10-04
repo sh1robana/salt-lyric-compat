@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Plugin-Class: local.salt.lyriccompat.LyricCompatPlugin
+Plugin-Id: local.salt.lyriccompat
+Plugin-Version: 0.1.0
+Plugin-Provider: sh1robana and Codex
+Plugin-Open-Source-Url: https://github.com/sh1robana/salt-lyric-compat
+Plugin-Name: FLAC Lyric Timestamp Compatibility
+Plugin-Description: Normalize malformed mm:ss:ff embedded FLAC lyrics
+Plugin-Has-Config: false
+
