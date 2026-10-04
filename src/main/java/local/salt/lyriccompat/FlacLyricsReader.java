@@ -9,7 +9,7 @@ import java.nio.charset.CodingErrorAction;
 import java.nio.charset.StandardCharsets;
 import java.nio.file.Path;
 
-/** Reads only FLAC STREAMINFO and Vorbis comments. Never opens a file for writing. */
+/** 仅读取 FLAC 的时长信息和 Vorbis 标签，始终以只读方式打开文件。 */
 public final class FlacLyricsReader {
     private static final long MAX_METADATA = 64L * 1024 * 1024;
     private static final int MAX_COMMENTS = 100_000;

@@ -39,6 +39,6 @@
 
 当前公开版本 v0.1.0 是测试版，只将 Windows 1.18.5 列为已验证；Linux、其他播放器版本及其他歌词模组组合仍需补测。安装包为桌面 JVM / PF4J 模组，未适配 Android。源码没有 Windows 原生调用，但这不等同于 Linux 实测通过。
 
-仓库使用官方推荐的 `salt-player-plugins` topic。GitHub 发布不等同于 Steam 创意工坊上传，目前没有已发布的 Steam 创意工坊条目。
+仓库使用官方推荐的主题标签 `salt-player-plugins`。GitHub 发布不等同于 Steam 创意工坊上传，目前没有已发布的 Steam 创意工坊条目。
 
-参考：[官方创意工坊 API](https://github.com/Moriafly/spw-workshop-api)，尤其是 `PlaybackExtensionPoint.onBeforeLoadLyrics` 与 `WorkshopPluginTask`。实际验证记录见 [VALIDATION.md](VALIDATION.md)。
+参考：[官方创意工坊接口](https://github.com/Moriafly/spw-workshop-api)，尤其是 `PlaybackExtensionPoint.onBeforeLoadLyrics` 与 `WorkshopPluginTask`。实际测试结果见 [验证记录](VALIDATION.md)。

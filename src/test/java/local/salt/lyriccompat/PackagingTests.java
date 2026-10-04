@@ -11,7 +11,7 @@ import java.nio.file.Path;
 import java.util.Comparator;
 import java.util.zip.ZipFile;
 
-/** Tests the distributed archive, not the classes on the build classpath. */
+/** 测试实际安装包，而不是构建目录中的类文件。 */
 public final class PackagingTests {
     public static void main(String[] args) throws Exception {
         Path root = Files.createTempDirectory("salt-compat-packaging-");

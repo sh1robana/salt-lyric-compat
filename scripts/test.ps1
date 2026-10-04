@@ -12,10 +12,10 @@ $testClasses = Join-Path $taskRoot 'build\test-classes'
 New-Item -ItemType Directory -Path $testClasses -Force | Out-Null
 $testSources = @(Get-ChildItem -LiteralPath (Join-Path $taskRoot 'src\test\java') -Recurse -Filter '*.java' | ForEach-Object FullName)
 & (Join-Path $JdkPath 'bin\javac.exe') -proc:none --release 21 -encoding UTF-8 -classpath "$classes;$hostArchive" -d $testClasses @testSources
-if ($LASTEXITCODE -ne 0) { throw 'Test compilation failed.' }
+if ($LASTEXITCODE -ne 0) { throw '测试代码编译失败。' }
 $testArgs = @('-classpath', "$testClasses;$classes;$hostArchive", 'local.salt.lyriccompat.CompatTests')
 if ($CorpusList) { $testArgs += $CorpusList }
 & (Join-Path $JdkPath 'bin\java.exe') @testArgs
-if ($LASTEXITCODE -ne 0) { throw 'Tests failed.' }
+if ($LASTEXITCODE -ne 0) { throw '歌词兼容测试失败。' }
 & (Join-Path $JdkPath 'bin\java.exe') -classpath "$testClasses;$hostArchive" 'local.salt.lyriccompat.PackagingTests' (Join-Path $taskRoot 'dist\plugin-local.salt.lyriccompat-0.1.0.zip')
-if ($LASTEXITCODE -ne 0) { throw 'Packaging tests failed.' }
+if ($LASTEXITCODE -ne 0) { throw '安装包加载测试失败。' }

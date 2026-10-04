@@ -2,6 +2,7 @@ $ErrorActionPreference = 'Stop'
 $taskRoot = Split-Path -Parent $PSScriptRoot
 New-Item -ItemType Directory -Path (Join-Path $taskRoot 'dist') -Force | Out-Null
 $output = Join-Path $taskRoot 'dist\salt-lyric-compat-source.zip'
+# 使用明确的文件清单，避免把本地曲库、构建产物或私人资料打包进去。
 $allowFiles = @('README.md', 'LICENSE', '.gitignore')
 Add-Type -AssemblyName System.IO.Compression
 $stream = [System.IO.File]::Open($output, [System.IO.FileMode]::Create)

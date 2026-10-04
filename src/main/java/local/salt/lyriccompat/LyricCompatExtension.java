@@ -16,7 +16,7 @@ public final class LyricCompatExtension implements PlaybackExtensionPoint {
             String name = path.getFileName().toString();
             if (!name.toLowerCase(Locale.ROOT).endsWith(".flac") || !Files.isRegularFile(path))
                 return null;
-            // An explicit sidecar is user intent; let the host choose and load it.
+            // 已有同名外置歌词时，让播放器自行选择并加载歌词来源。
             String stem = name.substring(0, name.length() - 5);
             for (String suffix : new String[]{".lrc", ".ttml", ".srt", ".qrc", ".yrc"}) {
                 if (Files.exists(path.resolveSibling(stem + suffix))
@@ -26,7 +26,7 @@ public final class LyricCompatExtension implements PlaybackExtensionPoint {
             var result = ColonTimestampNormalizer.normalize(lyrics.text(), lyrics.durationSeconds());
             return result.replacements() > 0 ? result.text() : null;
         } catch (Exception | LinkageError error) {
-            // File failures never prevent playback or the host's default lyric handling.
+            // 文件读取失败时，交回播放器默认处理，不阻止播放。
             return null;
         }
     }

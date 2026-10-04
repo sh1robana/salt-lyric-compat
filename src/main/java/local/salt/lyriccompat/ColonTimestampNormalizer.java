@@ -5,7 +5,7 @@ import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/** Conservative, line-prefix-only conversion; no timing or lyric text changes. */
+/** 仅保守地转换行首时间标记，不改动实际时间或歌词正文。 */
 public final class ColonTimestampNormalizer {
     private static final Pattern PREFIX = Pattern.compile(
             "(?m)^[\\uFEFF \\t]*(?:\\[\\d{2}:[0-5]\\d[.:]\\d{2,3}\\])+"
@@ -34,7 +34,7 @@ public final class ColonTimestampNormalizer {
                 double repaired = minutes * 60 + seconds + value / Math.pow(10, fraction.length());
                 if (repaired > durationSeconds + 5)
                     return new Result(text, 0, "outside-track-duration");
-                // Real hh:mm:ss stays intact if it could fit within this track.
+                // 如果可能是歌曲时长内的真实时分秒，保留原样。
                 double asHours = minutes * 3600.0 + seconds * 60.0 + value;
                 if (fraction.length() == 3 || value > 59 || asHours > durationSeconds + 5)
                     unambiguous = true;
