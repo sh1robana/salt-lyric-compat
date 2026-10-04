@@ -60,4 +60,4 @@
 
 开发者可查看 [开发说明](docs/DEVELOPMENT.md)；详细测试证据见 [验证记录](docs/VALIDATION.md)。
 
-作者：**sh1robana 和 Codex**。采用 [MIT 许可证](LICENSE)，见 [作者与致谢](docs/CREDITS.md)。本项目是通过官方创意工坊 API 编写的第三方模组，不是官方发布。
+作者：**[sh1robana](https://github.com/sh1robana) 和 [Codex](https://github.com/codex)**。采用 [MIT 许可证](LICENSE)，见 [作者与致谢](docs/CREDITS.md)。本项目是通过官方创意工坊 API 编写的第三方模组，不是官方发布。
